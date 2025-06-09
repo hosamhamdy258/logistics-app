@@ -1,0 +1,23 @@
+notes:
+- choices field used CharField(choices=CHOICES) instead of extending it as ForeignKey for simplicity
+- used build-in domain name validator from django 5.1 instead of creating new one manually
+- marked texts as translatable even if translate is not required now it's become much easier later when generating .po files
+- skipped data privacy for profiles model
+- critical actions like deactivate profiles should be only allowed to privileged users
+- /api/export/id/download for simplicity returned the file directly to browser from server
+- skipped .env file [ secret keys / database credentials ]
+
+
+
+
+Export:
+    used temp file to avoid IOBytes in memory for large amount of order exports
+    used queryset iterator and select_related for performance reasons
+
+Retry Logic:
+    used signals for observe failed orders stats and check profile instance for failed counter and auto deactivate
+    added manually deactivate too as admin action in orders page
+
+
+API RATE LIMIT:
+    added rate limit per user : 1000/day

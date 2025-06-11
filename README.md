@@ -36,7 +36,7 @@ A multi-tenant logistics management system built with Django, Django REST Framew
 
    ```bash
    git clone git@github.com:hosamhamdy258/logistics-app.git
-   cd task
+   cd logistics-app
    ```
 
 2. **Build and start the services**
